@@ -1,0 +1,6 @@
+{
+  "name": "기차 승차권 영수증 생성기",
+  "description": "한국철도공사 KTX/기차 승차권 영수증 가상 생성기 및 PNG 다운로더",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

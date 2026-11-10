@@ -1,0 +1,81 @@
+@import "tailwindcss";
+ 
+/* Off-screen render area for HTML-to-Image rendering (prevents display:none canvas crash) */
+.offscreen-render-area {
+  position: fixed !important;
+  top: -99999px !important;
+  left: -99999px !important;
+  width: 400px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: -9999 !important;
+}
+
+@media print {
+  @page {
+    margin: 8mm;
+    size: auto;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide everything except the printable container */
+  body * {
+    visibility: hidden;
+  }
+
+  #printable-multi-tickets,
+  #printable-multi-tickets * {
+    visibility: visible !important;
+  }
+
+  /* 출력 및 인쇄 시 빨간색 표시 완전 제거 (원본 승차권 영수증 양식 유지) */
+  .preview-fixed-mark {
+    border: none !important;
+    border-width: 0 !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #111111 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+
+  #printable-multi-tickets {
+    display: block !important;
+    position: static !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  .print-ticket-item {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding-top: 5mm !important;
+    padding-bottom: 5mm !important;
+  }
+
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  .print-ticket-spacing {
+    margin-bottom: 6mm !important;
+  }
+}
+
